@@ -1,4 +1,3 @@
-#include <math.h>
 #include <stdio.h>
 
 int main() {
@@ -6,12 +5,12 @@ int main() {
     //Variaives utilizadas para carta 1
     int populacao, point_Turistico;
     char nome_Cidade[50], estado [50], cod_Cidade[50] ;
-    float area, pib, densidade_populacional, pib_Per_Capita;
+    float area, pib, densidade_populacional, pib_Per_Capita, super_Poder;
 
     //Variaives utilizadas para carta 2
     int populacao2, point_Turistico2;
-    char nome_Cidade2[50], estado2 [50], cod_Cidade2[50] ;
-    float area2, pib2, densidade_populacional2, pib_Per_Capita2;
+    char nome_Cidade2[50], estado2 [50], cod_Cidade2[50];
+    float area2, pib2, densidade_populacional2, pib_Per_Capita2, super_Poder2;
 
     //Cadastro da carta1
     //Solicitando interação com o usuário e salvando as informações passadas
@@ -33,13 +32,13 @@ int main() {
     printf("Digite quantidade de pontos turisticos da cidade:");
     scanf("%d", &point_Turistico);
 
-    //Culcular os dados novos
+    //Calcular os dados novos
     densidade_populacional = (float) populacao / area;
     pib_Per_Capita = (float) pib / populacao;
+    super_Poder = (float) (populacao+area+pib+point_Turistico+pib_Per_Capita+densidade_populacional);
 
     //Espaços para melhor leitura
     printf("\n--------------\n\n");
-
 
     //Cadastro da carta2
     //Solicitando interação com o usuário e salvando as informações passadas
@@ -61,14 +60,15 @@ int main() {
     printf("Digite quantidade de pontos turisticos da cidade:");
     scanf("%d", &point_Turistico2);
 
-    //Culcular os dados novos
+    //Calcular os dados novos
     densidade_populacional2 = (float) populacao2 / area2;
     pib_Per_Capita2 = (float) pib2 / populacao2;
+    super_Poder2 = (float) (populacao2+area2+pib2+point_Turistico2+pib_Per_Capita2+densidade_populacional2);
 
     //Espaços para melhor leitura
     printf("\n--------------RESULTADO--------------\n\n");
 
-    // Exibição dos dados da carta 1:
+    //Exibição dos dados da carta 1:
     printf("*** Carta 1 ***\n\n");
 
     printf("Estado: %s\n", estado);
@@ -80,11 +80,12 @@ int main() {
     printf("Numero de pontos turisticos: %d\n", point_Turistico);
     printf("Densidade Populacional: %.2f hab/km\n", densidade_populacional);
     printf("PIB per Capita: %.2f reais\n", pib_Per_Capita);
+    printf("Super Poder: %.2f\n", super_Poder);
 
     //Espaços para melhor leitura
     printf("\n--------------\n\n");
 
-    // Exibição dos dados da carta 2:
+    //Exibição dos dados da carta 2:
     printf("*** Carta 2 ***\n\n");
 
     printf("Estado: %s\n", estado2);
@@ -96,6 +97,47 @@ int main() {
     printf("Numero de pontos turisticos: %d\n", point_Turistico2);
     printf("Densidade Populacional: %.2f hab/km\n", densidade_populacional2);
     printf("PIB per Capita: %.2f reais\n", pib_Per_Capita2);
+    printf("Super Poder: %.2f\n", super_Poder2);
+
+    printf("\n--------------RESULTADO LOGICA--------------\n\n");
+    printf("Comparacao de Cartas\n\n");
+
+
+    if (populacao > populacao2) {
+        printf("Populacao: Carta 1 venceu (1)\n");
+    }else {
+        printf("Populacao: Carta 2 venceu (0)\n");
+    }
+    if (area > area2) {
+        printf("Area: Carta 1 venceu (1)\n");
+    }else {
+        printf("Area: Carta 2 venceu (0)\n");
+    }
+    if (pib > pib2) {
+        printf("PIB: Carta 1 venceu (1)\n");
+    }else {
+        printf("PIB: Carta 2 venceu (0)\n");
+    }
+    if (point_Turistico > point_Turistico2) {
+        printf("Pontos Turisticos: Carta 1 venceu (1)\n");
+    }else {
+        printf("Pontos Turisticos: Carta 2 venceu (0)\n");
+    }
+    if (densidade_populacional < densidade_populacional2) {
+        printf("Densidade Populacional: Carta 1 venceu (1)\n");
+    }else {
+        printf("Densidade Populacional: Carta 2 venceu (0)\n");
+    }
+    if (pib_Per_Capita > pib_Per_Capita2) {
+        printf("PIB per Capita: Carta 1 venceu (1)\n");
+    }else {
+        printf("PIB per Capita: Carta 2 venceu (0)\n");
+    }
+    if (super_Poder > super_Poder2) {
+        printf("Super Poder: Carta 1 venceu (1)\n");
+    }else {
+        printf("Super Poder: Carta 2 venceu (0)\n");
+    }
 
     return 0;
 }
